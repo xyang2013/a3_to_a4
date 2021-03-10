@@ -24,6 +24,7 @@ To make it easy to use, you can follow the following steps:
 3. Rename the A3 pdf that you want to split to in.pdf
 4. Place this script in the same folder as the pdf
 5. Run this Python script
+6. Print the out.pdf with proper printer settings (preferrably using Acrobat to print)
 
 Copyright (c) 2021 Xiao Yang
 
