@@ -3,9 +3,20 @@
 
 """A3 to A4
 
-This script converts an A3 pdf (in landscape) to two A4 pdf pages (in portrait) without information loss in the center region. The A3 size print measures 29.7 x 42.0cm. The A4 size print measures 21.0 x 29.7cm. The program sacrifices the left and right edges of the A3 document to make sure there is no information loss in the middle region due to a printer' physical print margin.  
+This script converts an A3 pdf (in landscape) to two A4 pdf pages (in portrait)
+without information loss in the center region. The A3 size print measures 
+29.7 x 42.0cm. The A4 size print measures 21.0 x 29.7cm. The program sacrifices
+the left and right edges of the A3 document to make sure there is no information
+loss in the middle region due to a printer' physical print margin.  
 
-For example, the minimum printing margin of my HP LaserJet Professional P1606dn is 4mm (based on actual measurements). I use 4mm for the overlapping parameter. An A3 pdf document is split into two A4 pdf documents. The first A4 page maps the area between 4mm and 214mm (210+4) of the A3 document. The second A4 page maps the area between 206mm (210-4) and 416mm (420-4) of the A3 document. Hence, when we print the two A4 documents given the physical printing margin, there should not be any information loss in the middle if we join the two pages together. You should adjust the overlapping parameter for your printer.
+For example, the minimum printing margin of my HP LaserJet Professional P1606dn
+is 4mm (based on actual measurements). I use 4mm for the overlapping parameter.
+An A3 pdf document is split into two A4 pdf documents. The first A4 page maps the
+area between 4mm and 214mm (210+4) of the A3 document. The second A4 page maps
+the area between 206mm (210-4) and 416mm (420-4) of the A3 document. Hence, when
+we print the two A4 documents given the physical printing margin, there should
+not be any information loss in the middle if we join the two pages together.
+You should adjust the overlapping parameter for your printer.
 
 To make it easy to use, you can follow the following steps:
 1. Download and install Anaconda
