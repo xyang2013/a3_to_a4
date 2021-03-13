@@ -20,7 +20,7 @@ Requirements:
 Python3, PyPDF2
 
 Usage:
-python .\a3_to_a4.py -i .\Fitzcarraldo-FloorPlan-A3.pdf -o .\Fitzcarraldo-FloorPlan-A3_to_A4.pdf
+python .\a3_to_a4.py -i .\input_a3.pdf -o .\input_a3_to_a4.pdf
 
 Copyright (c) 2021 Xiao Yang
 
