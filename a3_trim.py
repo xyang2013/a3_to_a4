@@ -3,12 +3,15 @@
 
 """a3_trim
 
-I am using HP OfficeJet Pro 7740. The size of scanned A3 documents are not
-correct, 297.01 x 432.65mm instead of 297 x 420mm. This script trims off left
-and bottom edges to make sure the pdf size is exactly A3 large.
+I am using HP OfficeJet Pro 7740. The size of scanned A3 documents is not
+correct, 297.01 x 432.65mm instead of 297 x 420mm. This script trims off the 
+left and bottom edges to make sure the pdf size is exactly A3 large.
+
+Requirements: 
+Python3, PyPDF2
 
 Usage:
-python ./a3_trim.py -i input.pdf -o output.pdf
+python ./a3_trim.py -i contours.pdf -o contours_trim.pdf
 
 Copyright (c) 2021 Xiao Yang
 
@@ -37,8 +40,6 @@ __copyright__ = "Copyright (C) 2021 Xiao Yang"
 __license__ = "MIT License"
 __version__ = "1.0"
 
-
-
 import sys, getopt
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
@@ -46,12 +47,12 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 A3_WIDTH = 420 # in mm
 A3_HEIGHT = 297 # in mm
 
-# scanner scan area
-SCAN_AREA_HEIGHT = 297.01 # in mm
-SCAN_AREA_WIDTH = 432.65 # in mm
+# calibrate the following parameter according to your scanner
+scan_area_height = 297.01 # in mm
+scan_area_width = 432.65 # in mm
 
-left_trim = SCAN_AREA_WIDTH - A3_WIDTH
-bottom_trim = SCAN_AREA_HEIGHT - A3_HEIGHT
+left_trim = scan_area_width - A3_WIDTH
+bottom_trim = scan_area_height - A3_HEIGHT
 
 def main(argv):
 
@@ -73,8 +74,6 @@ def main(argv):
     print ('Input file is "', inputfile)
     print ('Output file is "', outputfile)
 
-    
-
     with open(inputfile, "rb") as in_f:
         
         input_ = PdfFileReader(in_f)
@@ -89,8 +88,8 @@ def main(argv):
         page_height = first_page.mediaBox.getUpperRight_y()
 
         # use Py2PDF representation
-        left_trim_ = left_trim/SCAN_AREA_WIDTH*float(page_width)
-        bottom_trim_ = bottom_trim/SCAN_AREA_HEIGHT*float(page_height)
+        left_trim_ = left_trim/scan_area_width*float(page_width)
+        bottom_trim_ = bottom_trim/scan_area_height*float(page_height)
 
         first_page.cropBox.lowerLeft = (left_trim_, bottom_trim_)
         first_page.cropBox.upperRight = (page_width, page_height)
