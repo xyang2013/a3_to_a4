@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #
 
-"""A3 to A4
+"""a3_to_a4
 
 This script converts an A3 pdf (in landscape) to two A4 pdf pages (in portrait)
 without information loss in the center region. The A3 size print measures 
